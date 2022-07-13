@@ -1,0 +1,29 @@
+#!/bin/bash
+
+PERSONAL="ENTER-YOUR-PERSONAL-SUB-ID-HERE"
+
+echo '1. List all available subscriptions'
+echo '2. Select subscription'
+echo '3. Use personal subscription'
+echo '4. Show currently active subscription'
+
+read -p 'Selection: ' VARCHOICE
+
+if [[ $VARCHOICE -eq 1 ]]
+then
+    az account list -o table
+elif [[ $VARCHOICE -eq 2 ]]
+then
+    read -p 'Please provide subscription ID: ' subid
+    az account set --subscription "$subid"
+    echo "$subid"
+elif [[ $VARCHOICE -eq 3 ]]
+then
+    az account set --subscription $PERSONAL
+    echo $PERSONAL
+elif [[ $VARCHOICE -eq 4 ]]
+then
+    az account show
+else
+    echo 'Incorrect input'
+fi
