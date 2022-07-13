@@ -4,7 +4,9 @@ This tool allows you to quickly check and switch Azure subscriptions via the azu
 
 # Installation
 
-Simply drop the file in one of the directories specified in the $PATH environmental variable. Ensure that the file has EXECUTE permissions set.
+Simply drop the file in one of the directories specified in the `$PATH` environmental variable. Ensure that the file has EXECUTE permissions set.
+
+Remember to set the `$PERSONAL` variable to the Subscription ID of your Azure sub.
 
 # Use
 
