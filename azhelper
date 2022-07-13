@@ -14,9 +14,9 @@ then
     az account list -o table
 elif [[ $VARCHOICE -eq 2 ]]
 then
-    read -p 'Please provide subscription ID: ' subid
-    az account set --subscription "$subid"
-    echo "$subid"
+    read -p 'Please provide subscription ID: ' SUBID
+    az account set --subscription "$SUBID"
+    echo "$SUBID"
 elif [[ $VARCHOICE -eq 3 ]]
 then
     az account set --subscription $PERSONAL
