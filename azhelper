@@ -1,13 +1,19 @@
 #!/bin/bash
 
-PERSONAL="ENTER-YOUR-PERSONAL-SUB-ID-HERE"
-
 echo '1. List all available subscriptions'
 echo '2. Select subscription'
 echo '3. Use personal subscription'
 echo '4. Show currently active subscription'
 
 read -p 'Selection: ' VARCHOICE
+
+if [[ -z $PERSONAL_SUB ]]
+then
+    echo 'Please set the PERSONAL_SUB environmental variable to your Subscription ID'
+    echo 'example: '
+    echo 'export PERSONAL_SUB="SUB_ID_GOES_HERE"'
+    exit 2
+fi
 
 if [[ $VARCHOICE -eq 1 ]]
 then
@@ -19,8 +25,8 @@ then
     echo "$SUBID"
 elif [[ $VARCHOICE -eq 3 ]]
 then
-    az account set --subscription $PERSONAL
-    echo $PERSONAL
+    az account set --subscription $PERSONAL_SUB
+    echo $PERSONAL_SUB
 elif [[ $VARCHOICE -eq 4 ]]
 then
     az account show
