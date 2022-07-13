@@ -23,7 +23,7 @@ then
         echo 'Please set the PERSONAL_SUB environmental variable to your Subscription ID'
         echo 'example: '
         echo 'export PERSONAL_SUB="SUB_ID_GOES_HERE"'
-        exit 2
+        exit 1
     fi
     az account set --subscription $PERSONAL_SUB
     echo $PERSONAL_SUB
